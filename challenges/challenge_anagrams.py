@@ -1,23 +1,23 @@
-def quick_sort(string_list, first, last):
+def quick_sort(array, first, last):
     if first < last:
-        divider = list_divider(string_list, first, last) 
-        quick_sort(string_list, first, divider - 1)
-        quick_sort(string_list, divider + 1, last)
-    return string_list
+        divider = list_divider(array, first, last)
+        quick_sort(array, first, divider - 1)
+        quick_sort(array, divider + 1, last)
+    return array
 
-def list_divider(string_list, first, last):
-    pivot = string_list[last]
+
+def list_divider(array, first, last):
+    pivot = array[last]
     delimiter = first - 1
 
     for i in range(first, last):
-        if string_list[i] <= pivot:
-          delimiter = delimiter + 1
-          string_list[i], string_list[delimiter] = string_list[delimiter], string_list[i]
+        if array[i] <= pivot:
+            delimiter = delimiter + 1
+            array[i], array[delimiter] = array[delimiter], array[i]
 
-    string_list[delimiter + 1], string_list[last] = string_list[last], string_list[delimiter + 1]
+    array[delimiter + 1], array[last] = array[last], array[delimiter + 1]
 
     return delimiter + 1
-
 
 
 def is_anagram(first_string, second_string):
